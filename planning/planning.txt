@@ -1,0 +1,49 @@
+Objects:
+    todoList
+    items
+
+toDoList:
+    title (store as string)
+    array with max 100 items
+
+item:
+    description (store as string)
+    due date (formatted YYYY-MM-DD, maybe store as 3 integers and concaternate when needed?)
+    completion status (use integer 0 or 1)
+
+Needed functions:
+    add/remove toDoList
+
+    modify title of toDoList
+    add/remove item to toDoList
+
+    edit description/due date of item in toDoList
+    mark item in todoList as complete
+
+    display all existing items in toDoList
+    display only complete/incomplete items in toDoList
+
+    save/load single/all todoList(s) to external storage.
+
+Solution (interface):
+    From driver/main function, create menu to allow for different options
+
+    from menu, allow creation of toDoList object
+        prompt for title of toDoList.
+        after creation, move to modification submenu
+    from menu, allow modification of toDoList values through submenu
+        from submenu, display title of toDoList in modifiable text box.
+        from submenu, display items in list below desc/due date. Allow for filtering and addition/removal.
+        from list, allow for modification of items
+            modifiable text boxes for description/due date
+            check box for completion status
+    from menu, allow for saving/loading of toDoList to external storage.
+        dropdown menu with options "all" and each list separately.
+
+Solution (internal):
+    from driver, create arrayList of toDoList objects.
+    when prompted, create and initialize toDoList object in arrayList
+
+    in toDoList object, create arraylist of item objects.
+    allow for creation/deletion of items within toDoList. arrayList will take care of this.
+    allow for modification of items within toDoList. Different methods in item class will take care of this.
