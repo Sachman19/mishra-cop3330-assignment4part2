@@ -1,0 +1,43 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class app
+class toDoList
+class item
+
+app <-- toDoList
+toDoList <-- item
+
+class app {
+ArrayList toDoLists
+
+menu()
+sort()
+}
+
+class toDoList {
+ArrayList items
+String title
+
+setTitle()
+createItem()
+modItem()
+getList()
+}
+
+class item {
+String description
+int year, month, day
+int complete
+
+setters()
+'setComplete()
+'setDate()
+'setDescription()
+getters()
+'getComplete()
+'getDate()
+'getDescription()
+}
+
+@enduml
