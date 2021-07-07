@@ -1,0 +1,9 @@
+package ucf.assignments;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+class AppTest {
+    public void testing(){
+
+    }
+}
