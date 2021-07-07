@@ -22,8 +22,11 @@ class AppTest {
         A user shall be able to mark an item in a todo list as complete
             Compare completion integer values
         A user shall be able to display all of the existing items in a todo list
+            Assuming this will need to be handled by a return code.
         A user shall be able to display only the incompleted items in a todo list
+            Assuming this will need to be handled by a return code.
         A user shall be able to display only the completed items in a todo list
+            Assuming this will need to be handled by a return code.
         A user shall be able to save all of the items in a single todo list to external storage
             Check for file creation.
         A user shall be able to save all of the items across all of the todo lists to external storage
