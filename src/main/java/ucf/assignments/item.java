@@ -46,6 +46,6 @@ public class item {
         return status;
     }
 
-    //modifiers
+
 
 }

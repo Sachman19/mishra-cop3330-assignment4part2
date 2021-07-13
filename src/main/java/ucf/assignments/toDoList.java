@@ -7,6 +7,7 @@ package ucf.assignments;
 
 import java.lang.String;
 import java.util.*;
+import java.io.*;
 
 public class toDoList {
 
@@ -76,7 +77,14 @@ public class toDoList {
         itemList.get(index).setDate(year, month, day);
     }
 
-    /*
-    modifying item object is handled in the item class.
-     */
+    //save/load from file
+    public void saveToFile(){
+
+    }
+
+    public void readFromFile(){
+
+    }
+
+
 }
