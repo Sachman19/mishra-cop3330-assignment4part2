@@ -5,14 +5,40 @@
 
 package ucf.assignments;
 
-public class item {
-    /*
-    new string description
-    new integers year, month, and date
-    new integer completion status
+import java.lang.String;
 
-    method setters
-    method getters
-        when retrieving due date, concaternate integers year month and date into string with formatting. return string.
-     */
+public class item {
+
+    private String desc; //Stores item description
+    private int yr, mth, dy; // year, month, and day.
+    private int status; //Used to show completion status.
+
+    //setters
+    public void setDesc(String description){
+        desc = description;
+    }
+
+    public void setDate(int year, int month, int day){
+        yr = year;
+        mth = month;
+        dy = day;
+    }
+
+    public void setStatus(int stat){
+        status = stat;
+    }
+
+    //getters
+    public String desc(){
+        return desc;
+    }
+
+    public String date(){
+        return yr + "-" + mth + "-" + dy;
+    }
+
+    public int status(){
+        return status;
+    }
+
 }

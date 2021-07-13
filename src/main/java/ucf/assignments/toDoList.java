@@ -5,11 +5,22 @@
 
 package ucf.assignments;
 
-public class toDoList {
-    /*create string title
-    create arrayList of item objects
-    create integer count
+import java.lang.String;
+import java.util.*;
 
+public class toDoList {
+
+    String title;
+    ArrayList<item> itemList = new ArrayList<item>();
+    int count; //Length of list
+
+    //Setters
+
+    //Getters
+
+    //Modifiers
+
+    /*
     method set title
     method retrieve title
 
