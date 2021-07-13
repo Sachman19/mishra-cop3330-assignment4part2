@@ -11,7 +11,7 @@ public class item {
 
     private String desc; //Stores item description
     private int yr, mth, dy; // year, month, and day.
-    private int status; //Used to show completion status.
+    private int status = 0; //Used to show completion status.
 
     //setters
     public void setDesc(String description){
@@ -24,8 +24,13 @@ public class item {
         dy = day;
     }
 
-    public void setStatus(int stat){
-        status = stat;
+    public void changeStatus(){
+        if(status == 0){
+            status = 1;
+        }
+        else{
+            status = 0;
+        };
     }
 
     //getters
@@ -40,5 +45,7 @@ public class item {
     public int status(){
         return status;
     }
+
+    //modifiers
 
 }
