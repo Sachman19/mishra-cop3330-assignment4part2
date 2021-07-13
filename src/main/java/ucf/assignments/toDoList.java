@@ -24,26 +24,25 @@ public class toDoList {
         return title;
     }
 
-    public int getCount(){
+    public int count(){
         return count;
     }
 
-    public void readItem(int index, int filter){ //prints list of items
+    public void readItem(int filter){ //prints list of items
         //filter 0 corresponds to no filter, 1 corresponds to incomplete items, 2 corresponds to completed items only.
-        for(int i = 0; i < index; i++){
+        for(int i = 0; i < count; i++){
             //Using printf here temporarily before implementing gui solution
             if((filter == 1 && itemList.get(i).status() == 1) || (filter == 2 && itemList.get(i).status() == 2)) break; //with those filters, skip respective items.
 
-            System.out.printf("%s, due: %s.\n Complete? ", itemList.get(i).desc(), itemList.get(i).date());
+            System.out.printf("%d. %s, due: %s.\n Complete? ", i+1, itemList.get(i).desc(), itemList.get(i).date());
 
-            if(itemList.get(i).status() == 0) System.out.println("no");
-            else System.out.println("yes");
+            if(itemList.get(i).status() == 0) System.out.println("No.");
+            else System.out.println("Yes.");
         }
 
     }
 
     //Modifiers
-
     public void createItem(String desc, int yr, int mth, int dy){ //add item object
         item newItem = new item();
 
@@ -61,6 +60,20 @@ public class toDoList {
 
     public void clearList(){
         itemList.clear();
+        count = 0;
+    }
+
+    //modify item fields
+    public void cngItemStat(int index){ //change item status
+        itemList.get(index).changeStatus();
+    }
+
+    public void cngItemDesc(int index, String desc){
+        itemList.get(index).setDesc(desc);
+    }
+
+    public void cngItemDate(int index, int year, int month, int day){
+        itemList.get(index).setDate(year, month, day);
     }
 
     /*

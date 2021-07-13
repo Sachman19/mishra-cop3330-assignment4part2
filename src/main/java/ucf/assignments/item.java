@@ -30,7 +30,7 @@ public class item {
         }
         else{
             status = 0;
-        };
+        }
     }
 
     //getters
