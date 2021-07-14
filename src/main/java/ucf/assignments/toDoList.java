@@ -9,15 +9,23 @@ import java.lang.String;
 import java.util.*;
 import java.io.*;
 
+import static java.lang.Integer.parseInt;
+
 public class toDoList {
 
     private String title;
     private ArrayList<item> itemList = new ArrayList<>();
     private int count = 0; //Length of list
 
+    private String filepath;
+
     //Setters
     public void setTitle(String input){
         title = input;
+    }
+
+    public void setFilename(String input){
+        filepath = "~/" + input;
     }
 
     //Getters
@@ -27,6 +35,10 @@ public class toDoList {
 
     public int count(){
         return count;
+    }
+
+    public String filepath(){
+        return filepath;
     }
 
     public void readItem(int filter){ //prints list of items
@@ -44,11 +56,8 @@ public class toDoList {
     }
 
     //Modifiers
-    public void createItem(String desc, int yr, int mth, int dy){ //add item object
+    public void createItem(){ //add item object
         item newItem = new item();
-
-        newItem.setDesc(desc);
-        newItem.setDate(yr, mth, dy);
 
         itemList.add(newItem);
         count++;
@@ -77,14 +86,66 @@ public class toDoList {
         itemList.get(index).setDate(year, month, day);
     }
 
+    public void cngItemDate(int index, String date){
+        int year, month, day;
+
+        String[] parseString = date.split("-");
+
+        year = parseInt(parseString[0]);
+        month = parseInt(parseString[1]);
+        day = parseInt(parseString[2]);
+
+        itemList.get(index).setDate(year, month, day);
+    }
+
     //save/load from file
-    public void saveToFile(){
-
+    public void saveToFile() throws IOException {
+        //Check if file exists. if true, overwrite it.
+        //Else, create new file
+        File outFile = new File(filepath);
+        if(!outFile.isFile()){
+            outFile.createNewFile();
+        }
+        //Write title to file
+        FileWriter writeFile = new FileWriter(filepath);
+        writeFile.write(title);
+        //loop, format desc, date, and status per item.
+        for(int i = 0; i < count; i++){
+            writeFile.write(itemList.get(i).desc());
+            writeFile.write(itemList.get(i).date());
+            writeFile.write(itemList.get(i).status());
+        }
+        writeFile.close();
     }
 
-    public void readFromFile(){
-
+    public int readFromFile(){
+        //Check if file exists. If not, return error code.
+        File inFile = new File(filepath);
+        if(!inFile.isFile()){
+            return -1;
+        }
+        //Read first line and save as title.
+        Scanner readFile = new Scanner(filepath);
+        title = readFile.nextLine();
+        //While has next line is true, keep creating item objects and assigning values.
+        int i = 0;
+        while(readFile.hasNextLine()){
+            if(i%3 == 0){
+                createItem();
+                cngItemDesc(i/3, readFile.nextLine());
+            }
+            if(i%3 == 1){
+                cngItemDate(i/3, readFile.nextLine());
+            }
+            if(i%3 == 2){
+                if(parseInt(readFile.nextLine()) == 1) itemList.get(i/3).changeStatus();
+            }
+            i++;
+        }
+        return 0;
     }
+
+
 
 
 }
