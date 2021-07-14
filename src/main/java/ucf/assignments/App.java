@@ -5,12 +5,18 @@
 
 package ucf.assignments;
 
+import javafx.application.Application;
+
 import java.util.*;
+
+import static com.sun.javafx.scene.control.skin.Utils.getResource;
+
 
 public class App {
     public static void main(String[] args){
         /*initialize arraylist of toDoList objects
         call menu function*/
+        Application.launch("menu.fxml");
     }
 
     public static void menu(){

@@ -41,6 +41,17 @@ public class toDoList {
         return filepath;
     }
 
+    public String readItemDesc(int index){
+        return itemList.get(index).desc();
+    }
+    public String readItemDate(int index){
+        return itemList.get(index).date();
+    }
+    public int readItemStat(int index){
+        return itemList.get(index).status();
+    }
+
+
     public void readItem(int filter){ //prints list of items
         //filter 0 corresponds to no filter, 1 corresponds to incomplete items, 2 corresponds to completed items only.
         for(int i = 0; i < count; i++){

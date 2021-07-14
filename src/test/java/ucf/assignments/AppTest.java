@@ -1,40 +1,52 @@
 package ucf.assignments;
 
+import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
+    @org.junit.Test
     public void testing(){
-        /*
-        A user shall be able to add a new todo list
-            Test size of arrayList. if arraylist length is +1 from start, then success
-        A user shall be able to remove an existing todo list
-            Test size of arrayList. if arraylist length is -1 from start, then success
-        A user shall be able to edit the title of an existing todo list
-            write a test to compare string of todoList title.
-        A user shall be able to add a new item to an existing todo list
-            Test size of arrayList. if arraylist length is +1 from start, then success
-        A user shall be able to remove an item from an existing todo list
-            Test size of arrayList. if arraylist length is -1 from start, then success
-        A user shall be able to edit the description of an item within an existing todo list
-            Compare string of description
-        A user shall be able to edit the due date of an item within an existing todo list
-            Compare string of due date
-        A user shall be able to mark an item in a todo list as complete
-            Compare completion integer values
-        A user shall be able to display all of the existing items in a todo list
-            Assuming this will need to be handled by a return code.
-        A user shall be able to display only the incompleted items in a todo list
-            Assuming this will need to be handled by a return code.
-        A user shall be able to display only the completed items in a todo list
-            Assuming this will need to be handled by a return code.
-        A user shall be able to save all of the items in a single todo list to external storage
-            Check for file creation.
-        A user shall be able to save all of the items across all of the todo lists to external storage
-            Check for file creation, +length?
-        A user shall be able to load a single todo list that was previously saved to external storage
-            Check arraylist after loading file
-        A user shall be able to load multiple todo lists that were previous saved to external storage
-            Check arraylist after loading file
-         */
+
+        toDoList testList = new toDoList();
+        //A user shall be able to add a new item to the list
+        testList.createItem();
+        assertEquals(1, testList.count());
+
+        //A user shall be able to remove an item from the list
+        testList.removeItem(0);
+        assertEquals(0, testList.count());
+
+        //A user shall be able to clear the list of all items
+        testList.createItem();
+        testList.createItem();
+        testList.createItem();
+
+        testList.clearList();
+        assertEquals(0, testList.count());
+
+        //A user shall be able to edit the description of an item within the list
+        testList.createItem();
+        testList.cngItemDesc(0, "New Description");
+        assertEquals(0, testList.readItemDesc(0).compareTo("New Description"));
+
+        //A user shall be able to edit the due date of an item within the list
+        testList.cngItemDate(0, 2002, 07, 13);
+        assertEquals(0, testList.readItemDate(0).compareTo("2002-07-13"));
+
+        //A user shall be able to mark an item in the list as either complete or incomplete
+        testList.cngItemStat(0);
+        assertEquals(1, testList.readItemStat(0));
+
+        //A user shall be able to display all of the existing items in the list
+
+        //A user shall be able to display only the incomplete items in the list
+
+        //A user shall be able to display only the completed items in the list
+
+        //A user shall be able to save the list (and all of its items) to external storage
+
+        //A user shall be able to load a list (and all of its items) from external storage
+
     }
 }
