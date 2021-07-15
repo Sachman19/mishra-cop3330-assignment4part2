@@ -7,6 +7,8 @@ package ucf.assignments;
 
 import java.lang.String;
 
+import static java.lang.String.format;
+
 public class item {
 
     private String desc; //Stores item description
@@ -39,7 +41,7 @@ public class item {
     }
 
     public String date(){
-        return yr + "-" + mth + "-" + dy;
+        return format("%04d-%02d-%02d", yr, mth, dy);
     }
 
     public int status(){

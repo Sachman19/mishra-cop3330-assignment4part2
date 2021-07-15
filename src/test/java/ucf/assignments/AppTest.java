@@ -5,8 +5,8 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
-    @org.junit.Test
-    public void testing(){
+    @Test
+    public void CreateAndDeleteTest(){
 
         toDoList testList = new toDoList();
         //A user shall be able to add a new item to the list
@@ -25,6 +25,11 @@ class AppTest {
         testList.clearList();
         assertEquals(0, testList.count());
 
+    }
+    @Test
+    public void modItemTest(){
+        toDoList testList = new toDoList();
+
         //A user shall be able to edit the description of an item within the list
         testList.createItem();
         testList.cngItemDesc(0, "New Description");
@@ -32,21 +37,27 @@ class AppTest {
 
         //A user shall be able to edit the due date of an item within the list
         testList.cngItemDate(0, 2002, 07, 13);
+        //System.out.printf("%s", testList.readItemDate(0));
         assertEquals(0, testList.readItemDate(0).compareTo("2002-07-13"));
 
         //A user shall be able to mark an item in the list as either complete or incomplete
         testList.cngItemStat(0);
         assertEquals(1, testList.readItemStat(0));
 
+    }
+    @Test
+    public void displayTest() {
         //A user shall be able to display all of the existing items in the list
 
         //A user shall be able to display only the incomplete items in the list
 
         //A user shall be able to display only the completed items in the list
+    }
 
+    @Test
+    public void saveTest() {
         //A user shall be able to save the list (and all of its items) to external storage
 
         //A user shall be able to load a list (and all of its items) from external storage
-
     }
 }
