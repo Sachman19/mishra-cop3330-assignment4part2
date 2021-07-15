@@ -6,8 +6,10 @@
 package ucf.assignments;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
 
@@ -18,9 +20,10 @@ import static com.sun.javafx.scene.control.skin.Utils.getResource;
 
 public class App extends Application {
 
+    @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("Hello World");
+        Parent root = FXMLLoader.load(getClass().getResource("remade menu.fxml"));
+        primaryStage.setTitle("toDoList modifier");
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.show();
     }
@@ -28,7 +31,13 @@ public class App extends Application {
     public static void main(String[] args){
         /*initialize arraylist of toDoList objects
         call menu function*/
-        Application.launch("menu.fxml");
+        Application.launch("remade menu.fxml");
     }
+
+    @FXML
+    private void toDoListScene(ActionEvent event) {
+        //change stage to toDoList menu
+    }
+
 
 }
