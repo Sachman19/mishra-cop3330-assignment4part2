@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Scene?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.stage.Stage?>
+
+<Stage xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+    <scene>
+        <Scene>
+            <AnchorPane prefHeight="301.0" prefWidth="456.0">
+            <children>
+               <Button layoutY="-1.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="70.0" text="Back" />
+               <Button alignment="CENTER" graphicTextGap="1.0" layoutX="384.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="39.0" text="+" textAlignment="JUSTIFY" textOverrun="CLIP" wrapText="true">
+                  <font>
+                     <Font size="16.0" />
+                  </font>
+               </Button>
+               <Button alignment="CENTER" graphicTextGap="1.0" layoutX="423.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="39.0" text="-" textAlignment="JUSTIFY" textOverrun="CLIP" wrapText="true">
+                  <font>
+                     <Font size="16.0" />
+                  </font>
+               </Button>
+               <ScrollPane layoutX="56.0" layoutY="75.0" prefHeight="171.0" prefWidth="358.0">
+                 <content>
+                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="169.0" prefWidth="342.0">
+                        <children>
+                           <Button layoutX="-3.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="348.0" text="Button" />
+                        </children>
+                     </AnchorPane>
+                 </content>
+               </ScrollPane>
+               <Text layoutX="146.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select an item" textAlignment="CENTER" wrappingWidth="170.861328125">
+                  <font>
+                     <Font size="21.0" />
+                  </font>
+               </Text>
+               <Button layoutX="332.0" layoutY="253.0" mnemonicParsing="false" text="Export" />
+               <Button layoutX="389.0" layoutY="253.0" mnemonicParsing="false" text="Import" />
+            </children></AnchorPane>
+        </Scene>
+    </scene>
+</Stage>
