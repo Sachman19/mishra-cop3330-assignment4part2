@@ -26,6 +26,7 @@ class AppTest {
         assertEquals(0, testList.count());
 
     }
+
     @Test
     public void modItemTest(){
         toDoList testList = new toDoList();
@@ -45,6 +46,7 @@ class AppTest {
         assertEquals(1, testList.readItemStat(0));
 
     }
+
     @Test
     public void displayTest() {
         //A user shall be able to display all of the existing items in the list

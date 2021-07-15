@@ -108,8 +108,8 @@ public class toDoList {
 
         itemList.get(index).setDate(year, month, day);
     }
-
-    //save/load from file
+    //I honestly feel like saving/loading should be it's own thing but couldn't figure out how to separate that from this class.
+    //save and load from file
     public void saveToFile() throws IOException {
         //Check if file exists. if true, overwrite it.
         //Else, create new file
